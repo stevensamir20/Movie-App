@@ -6,8 +6,7 @@ import { LoginService } from '../../shared/services/login.service';
 
 @Component({
   selector: 'app-sign-up',
-  templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.scss']
+  templateUrl: './sign-up.component.html'
 })
 
 export class SignUpComponent implements OnInit {
@@ -16,7 +15,7 @@ export class SignUpComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private dataService: LoginService, private router: Router) {
       this.registerForm = this.fb.group({
-          email: ['', [ Validators.required, [ Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]]],
+          email: ['', Validators.required],
           password: ['', Validators.required],
           name: ['', Validators.required]
       });

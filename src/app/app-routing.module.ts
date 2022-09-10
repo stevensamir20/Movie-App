@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'sign-up', loadChildren: () => import('./pages/sign-up/sign-up.module').then(m => m.SignUpModule)},
   { path: 'movies', component: MoviesListComponent, canActivate: [AuthGuard] },
   { path: 'movies/:id', loadChildren: () => import('./pages/single-movie/single-movie.module').then(m => m.SingleMovieModule), canActivate: [AuthGuard]},
+  { path: 'favorites', loadChildren: () => import('./pages/favorites/favorites.module').then(m => m.FavoritesModule), canActivate: [AuthGuard]},
   { path: '**', component: NotFoundComponent }
 ];
 

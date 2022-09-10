@@ -1,8 +1,14 @@
 <nav>
-    <span class="nav-title">E-Commerce</span>
+    <span class="nav-title">Movies</span>
     <ul class="nav-links">
-        <li *ngFor="let item of menuLinks" class="d-none d-lg-block d-xl-block">
-            <a [routerLink]="item.path">{{item.label}}</a>
+        <li class="d-none d-lg-block d-xl-block">
+            <a routerLink="movies" routerLinkActive="active">Movies</a>
+        </li>
+        <li class="d-none d-lg-block d-xl-block">
+            <a routerLink="favorites" routerLinkActive="active">Favorites</a>
+        </li>
+        <li>
+            <a routerLink="login" *ngIf="logoutbtn" (click)="logOut()">Logout</a>
         </li>
     </ul>
 </nav>

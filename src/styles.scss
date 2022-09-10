@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./app/styles/base/mixins.scss";
+@import "./app/styles/base/variables.scss";
+@import "./app/styles/base/reset.scss";
+@import "./app/styles/components/forms.scss";
+@import "./app/styles/components/cards.scss";
+@import "./app/styles/layout/header.scss";
+@import "./app/styles/layout/footer.scss";
+@import "./app/styles/pages/home.scss";

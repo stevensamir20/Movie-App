@@ -1,29 +1,18 @@
-<h2 class="text-center">Registration</h2>
-<div class="row">
-    <div class="col-md-3">
+<div class="container">
+    <div class="form-container">
+    <form [formGroup]="registerForm" (ngSubmit)="postData(registerForm)" autocomplete="off" >
+        <h3>Sign up now!</h3>
+       
+        <label for="name">Username</label>
+        <input type="text" name="name" formControlName="name" autocomplete="off" class="form-control input-sm" placeholder="Enter your username">
+       
+        <label for="email">Email</label>
+        <input type="email" name="email" formControlName="email" autocomplete="off" class="form-control input-sm" placeholder="Enter your email">
+       
+        <label for="password">Password</label>
+        <input type="password" name="password" formControlName="password" autocomplete="off" class="form-control input-sm" placeholder="Enter your password">
+ 
+        <button>Register</button>
+    </form>
     </div>
-    <div class="col-md-6 col-md-offset-3">
-        <div class="jumbotron">
-        <form [formGroup]="registerForm" (ngSubmit)="postData(registerForm)" autocomplete="off" >
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" name="name" formControlName="name" autocomplete="off" class="form-control input-sm" placeholder="Name">
-            </div>
-
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" name="email" formControlName="email" autocomplete="off" class="form-control input-sm" placeholder="Email">
-            </div>
-
-            <div class="form-group">
-                <label for="Password">Password</label>
-                <input type="password" name="Password" formControlName="password" autocomplete="off" class="form-control input-sm" placeholder="Password">
-            </div>
-
-            <button type="submit" class="btn btn-success" >Register</button>
-        </form>
-    </div>
-</div>
-<div class="col-md-3">
-</div>
 </div>
