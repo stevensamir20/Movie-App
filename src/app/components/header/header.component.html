@@ -1,0 +1,8 @@
+<nav>
+    <span class="nav-title">E-Commerce</span>
+    <ul class="nav-links">
+        <li *ngFor="let item of menuLinks" class="d-none d-lg-block d-xl-block">
+            <a [routerLink]="item.path">{{item.label}}</a>
+        </li>
+    </ul>
+</nav>
