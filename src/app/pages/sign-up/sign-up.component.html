@@ -23,7 +23,14 @@
         <span class="error" *ngIf="fc['confirmPassword'].getError('required') && password!.touched">Confirm password is required.</span>
         <span class="error" *ngIf="fc['confirmPassword'].getError('passMatch')!=null">Passwords don't match</span>
 
-        <button [disabled]="registerForm.invalid">Register</button>
+        <button [disabled]="registerForm.invalid">
+            <span *ngIf="showLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span><span *ngIf="showLoading" style="margin-left: 10px;">Signing you up!</span>
+            <span *ngIf="!showLoading">Register</span>
+        </button>
+        <div style="margin-top: 15px;"><span>Already have an account? <a routerLink="/login">Login now!</a></span></div>
+        <div *ngIf="showError" class="alert alert-danger" role="alert" style="margin-top: 15px; margin-bottom: -20px;">
+            Error: {{showError}}
+        </div>
     </form>
     </div>
 </div>

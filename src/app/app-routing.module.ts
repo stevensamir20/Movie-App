@@ -9,9 +9,11 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', redirectTo: '' },
   { path: 'sign-up', loadChildren: () => import('./pages/sign-up/sign-up.module').then(m => m.SignUpModule)},
-  { path: 'movies', component: MoviesListComponent, canActivate: [AuthGuard] },
+  { path: 'movies', component: MoviesListComponent, canActivate: [AuthGuard]},
   { path: 'movies/:id', loadChildren: () => import('./pages/single-movie/single-movie.module').then(m => m.SingleMovieModule), canActivate: [AuthGuard]},
   { path: 'favorites', loadChildren: () => import('./pages/favorites/favorites.module').then(m => m.FavoritesModule), canActivate: [AuthGuard]},
+  { path: 'actors', loadChildren: () => import('./pages/actors-list/actors-list.module').then(m => m.ActorsListModule), canActivate: [AuthGuard]},
+  { path: 'actors/:id', loadChildren: () => import('./pages/single-actor/single-actor.module').then(m => m.SingleActorModule), canActivate: [AuthGuard] },
   { path: '**', component: NotFoundComponent }
 ];
 

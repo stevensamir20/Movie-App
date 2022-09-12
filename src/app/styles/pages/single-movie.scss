@@ -1,0 +1,120 @@
+.header-details {
+    color: #ffffffdf;
+
+    & .reviews .star {
+        color: darkorange;
+        font-size: 18px;
+    }
+
+    & .reviews span {
+        font-size: 18px;
+    }
+
+    & .reviews a {
+        color: darkorange;
+        transition: all .3s;
+    }
+
+    & .reviews a:hover {
+        color: red;
+    }
+}
+
+@media (max-width: 771px) {
+    .header-details {
+        flex-direction: column;
+        text-align: center;
+
+        & .reviews {
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.movie-body {
+    border-radius: 20px;
+
+    & img {
+        border-radius: 20px 0 0 20px ;
+        box-shadow: -10px 0px 30px -9px #777;
+    }
+
+    & iframe {
+        border-radius: 0 20px 20px 0;
+        box-shadow: 10px 0px 30px -9px #777;
+    }
+}
+
+@media (max-width: 991px) {
+    .movie-body {
+        & .movie-video  {
+            width: 100% !important;
+            height: 380px;
+        }
+       
+        & .movie-cover {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 550px) {
+    .movie-body {
+        & .movie-video  {
+            height: 280px;
+        }
+    }
+}
+
+.desc {
+    color: #ffffffdf;
+}
+
+.category{
+    & a {
+        color: #ffffffdf;
+        border: 1px solid #ffffffdf;
+        padding: 7px 15px;
+        border-radius: 25px;
+        display: inline-block;
+        transition: all .5s;
+
+        &:hover {
+            background-color: darkorange;
+        }
+    }
+}
+
+@media (max-width: 771px) {
+    .desc {
+        flex-direction: column;
+
+        & p {
+            width: 100% !important;
+            margin-bottom: 12px;
+        }
+    }
+
+    .link-details {
+        width: 100% !important;
+        margin-top: 10px;
+    }
+
+    .category-up {
+        flex-direction: column;
+        align-items: stretch !important;
+
+        & .director {
+            margin-bottom: 15px !important;
+        }
+    }
+}
+
+.director {
+    color: #ffffffdf;
+
+    & a {
+        color: darkorange;
+    }
+}

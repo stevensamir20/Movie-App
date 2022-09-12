@@ -1,7 +1,6 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
-// import { Users } from './users';
 
 @Injectable({
 providedIn: 'root'
@@ -12,7 +11,7 @@ export class LoginService {
     redirectUrl!: string;
     baseUrl: string = "http://127.0.0.1:3000/api";
 
-    @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
+    @Output() getLoggedInState: EventEmitter<any> = new EventEmitter();
 
     constructor( private httpClient : HttpClient ) { }
 
@@ -22,15 +21,14 @@ export class LoginService {
             map( (user) => {
                 console.log(user)
                 this.setToken(email);
-                this.getLoggedInName.emit(true);
-                // return Users;
+                this.getLoggedInState.emit(true);
             })
         );
     }
 
     public userRegister(username: string, email: string, password: string) {
         return this.httpClient.post<any>(this.baseUrl + '/register', { username, email, password })
-        .pipe(map( (Users) => { console.log (Users); }));
+        .pipe(map( (users) => { console.log (users); }));
     }
 
     // Setting user token as it's email

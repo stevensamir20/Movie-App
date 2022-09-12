@@ -1,0 +1,18 @@
+app-footer {
+    margin-top: auto;
+}
+
+.footer {
+    color: white;
+    background-color: black;
+    padding: 12px;
+    & span {
+        color: darkorange;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer span {
+        display: block;
+    }
+}

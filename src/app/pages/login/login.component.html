@@ -13,8 +13,14 @@
         <span class="error" *ngIf="fc['password'].getError('required') && password!.touched">Password is required.</span>
         <span class="error" *ngIf="fc['password'].getError('minlength')!=null">Password must be at least 8 characters long.</span>
 
-        <button [disabled]="loginForm.invalid">Login</button>
-        <span>Don't have an account? <a routerLink="sign-up">Sign up now!</a></span>
+        <button [disabled]="loginForm.invalid">
+            <span *ngIf="showLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span><span *ngIf="showLoading" style="margin-left: 10px;">Signing you in!</span>
+            <span *ngIf="!showLoading">Login</span>
+        </button>
+        <div style="margin-top: 15px;"><span>Don't have an account? <a routerLink="sign-up">Sign up now!</a></span></div>
+        <div *ngIf="showError" class="alert alert-danger" role="alert" style="margin-top: 15px; margin-bottom: -20px;">
+            Error: {{showError}}
+        </div>
     </form>
     </div>
 </div>

@@ -1,9 +1,9 @@
 <div class="container">
     <div class="search">
-        <input type="text" [(ngModel)]="filteredMovie">
+        <input type="text" [(ngModel)]="filteredActor">
     </div>
     <div class="products-page">
-        <div *ngFor="let item of movies | filter: filteredMovie" class="card" style="width: 18rem;">
+        <div *ngFor="let item of actors | filter: filteredActor " class="card" style="width: 18rem;">
             <img class="card-img-top" [src]="item.img" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">{{item.name}}</h5>
@@ -12,7 +12,7 @@
             <div class="card-body card-buttons">
                 <a 
                 appStyleDirective
-                [routerLink]="['/movies', item.id]"
+                [routerLink]="['/actors', item.id]"
                 class="btn btn-primary">
                 View
                 </a>

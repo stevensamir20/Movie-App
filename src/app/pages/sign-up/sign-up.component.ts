@@ -12,6 +12,8 @@ import { LoginService } from '../../shared/services/login.service';
 export class SignUpComponent implements OnInit {
 
   registerForm: FormGroup;
+  showLoading: boolean = false;
+  showError: string | undefined;
 
   constructor(private fb: FormBuilder, private dataService: LoginService, private router: Router) {
       this.registerForm = this.fb.group({
@@ -27,14 +29,20 @@ export class SignUpComponent implements OnInit {
   ngOnInit() {}
 
   postData(regForm: any){
+      this.showLoading = true;
       this.dataService.userRegister(regForm.value.name, regForm.value.email, regForm.value.password)
       .pipe(first())
       .subscribe(
-          data => { 
-            alert(data);
-            this.router.navigate(['login']); },
-          error => {}
+          (data) => { 
+            this.router.navigate(['login']); 
+            this.showLoading = false;
+          },
+          (error) => { 
+            this.showError = error;
+            this.showLoading = false; 
+          }
       );
+
   }
 
   get name() { return this.registerForm.get('name'); }

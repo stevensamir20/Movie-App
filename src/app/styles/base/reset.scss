@@ -3,16 +3,26 @@
     padding: 0;
     box-sizing: border-box;
 }
-.App { 
+app-root { 
     display: flex; 
     flex-direction: column;
     height: 100vh;
 } 
+app-sign-up, app-login {
+    height: 100vh;
+    padding-top: 30px;
+    background-image: url('https://miro.medium.com/max/1400/1*5lyavS59mazOFnb55Z6znQ.png');
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+body {
+  background-color: #282828;
+}
 a {
     text-decoration: none !important;
 }
 .container {
-    margin-top: 75px;
+    margin: auto;
 }
 ul {
     list-style: none !important;

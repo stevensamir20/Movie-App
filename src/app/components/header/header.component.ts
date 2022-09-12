@@ -8,27 +8,22 @@ import { LoginService } from 'src/app/shared/services/login.service';
 
 export class HeaderComponent implements OnInit {
 
-  loginbtn:boolean;
-  logoutbtn:boolean;
+  loggedIn:boolean;
 
   constructor(private dataService: LoginService) {
-    dataService.getLoggedInName.subscribe(name => this.changeName(name));
+    dataService.getLoggedInState.subscribe(state => this.changeLoggedState(state));
     if(this.dataService.isLoggedIn()){
-        console.log("loggedin");
-        this.loginbtn=false;
-        this.logoutbtn=true
+      this.loggedIn=true
     }
     else{
-        this.loginbtn=true;
-        this.logoutbtn=false
+      this.loggedIn=false
     }
   }  
 
   ngOnInit() {}
 
-  private changeName(name: boolean): void {
-    this.logoutbtn = name;
-    this.loginbtn = !name;
+  private changeLoggedState(state: boolean): void {
+    this.loggedIn = state;
   }
 
   logOut() {

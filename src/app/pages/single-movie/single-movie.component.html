@@ -1,1 +1,45 @@
-<p>single-movie works!</p>
+<div class="header-details container d-flex justify-content-between pt-4">
+    <div class="movie-name">
+        <h2>{{movie.name}}</h2>
+        <p class="fs-5">{{movie.year}} - <span>{{movie.time}}</span></p>
+    </div>
+
+    <div class="reviews d-flex">
+        <div class="rating me-5 text-center">
+            <p class="mb-1 fs-5">Rating</p>
+            <i class="fa-solid fa-star star"></i>
+            <span>{{movie.rating}}</span>
+        </div>
+
+        <div class="favorite text-center">
+            <p class="mb-1 fs-5">Favorite</p>
+            <a>
+                <i class="fa-regular fa-heart fs-4 heart"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="movie-body container mt-2 d-flex w-100">
+    <div class="movie-cover w-25">
+        <img [src]="movie.img" alt="img" class="img-fluid">
+    </div>
+
+    <div class="movie-video w-75">
+        <iframe width="100%" height="100%" [src]="movie.video | youtube" title="Movie Trailer" frameborder="0"></iframe>
+    </div>
+</div>
+
+<div class="category-up container link-details d-flex justify-content-between mt-4 mb-3 align-items-center">
+    <p class="director m-0">Director - <a class="ms-2">{{movie.director}}</a></p>
+
+    <div class="category">
+        <a *ngFor="let category of movie.category" class="me-2">{{category}}</a>
+    </div>
+</div>
+
+<div class="desc d-flex justify-content-between container">
+    <p class="w-50 lead">
+        {{movie.description}}
+    </p>
+</div>

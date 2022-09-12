@@ -1,22 +1,24 @@
 .form-container {
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 60px;
+    margin: auto;
+    color: rgb(168, 95, 6);
 }
 
 form {
     width: 350px;
-    background-color: rgba(255,255,255,0.13);
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
+    background-color: #181818;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
     border: 2px solid rgba(255,255,255,0.1);
     box-shadow: 0 0 40px rgba(8,7,16,0.6);
     padding: 50px 35px;
 
     &.ng-invalid {
         & button {
-            margin-top: 50px;
+            margin-top: 30px;
             width: 100%;
             background-color: #ffffff;
             color: #080710;
@@ -28,8 +30,9 @@ form {
     }
 
     & h3 {
+        margin-top: -15px;
         font-size: 32px;
-        font-weight: 500;
+        font-weight: bold;
         line-height: 42px;
         text-align: center;
     }
@@ -39,6 +42,7 @@ form {
         margin-top: 30px;
         font-size: 16px;
         font-weight: 500;
+        
     }
 
     & input {
@@ -63,7 +67,7 @@ form {
 
     &.ng-valid {
         & button {
-            margin-top: 50px;
+            margin-top: 30px;
             width: 100%;
             background-color: #ffffff;
             color: #080710;
@@ -73,9 +77,10 @@ form {
             border-radius: 5px;
     
             &:hover {
-                background-color: #080710;
-                color: #ffffff;
+                background-color: darkorange;
+                color: #080710;
             }
+           
         }
     }
 

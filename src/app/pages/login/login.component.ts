@@ -12,6 +12,8 @@ import { LoginService } from '../../shared/services/login.service';
 export class LoginComponent implements OnInit {
 
   loginForm:FormGroup;
+  showLoading: boolean = false;
+  showError: string | undefined;
 
   constructor(private fb: FormBuilder, private dataService: LoginService, private router: Router) {
     this.loginForm = this.fb.group({
@@ -23,14 +25,19 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   postData(loginData: any) {
+    this.showLoading = true;
     this.dataService.userLogin( loginData.value.email, loginData.value.password )
     .pipe(first())
     .subscribe(
-        (data) => {
-            const redirect = this.dataService.redirectUrl ? this.dataService.redirectUrl : '/movies';
-            this.router.navigate([redirect]);
-        },
-        (error) => { alert('Error: ' + error) }
+      (data) => {
+        const redirect = this.dataService.redirectUrl ? this.dataService.redirectUrl : '/movies';
+        this.router.navigate([redirect]);
+        this.showLoading = false;
+      },
+      (error) => { 
+        this.showError = error;
+        this.showLoading = false;
+      }
     );
   }
 
