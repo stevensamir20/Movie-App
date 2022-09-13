@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {}
 
-  private changeLoggedState(state: boolean): void {
+  changeLoggedState(state: boolean): void {
     this.loggedIn = state;
   }
 

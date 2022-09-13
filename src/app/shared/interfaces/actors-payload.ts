@@ -1,6 +1,7 @@
 export interface ActorsPayload{
-    id: string;
-    name: string;
-    img: string;
-    moviesList: object;
+    actorId: number;
+    actorName: string;
+    actorAge: number;
+    actorImgUrl: string;
+    actorMovies: number;
 }

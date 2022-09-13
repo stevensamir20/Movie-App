@@ -1,12 +1,12 @@
 export interface MoviesPayload{
-    id: string; 
-    name: string; 
-    director: string; 
-    time: string; 
-    year: string;
-    category: string[]; 
-    img: string;
-    rating: string;
-    video: string, 
-    description: string;
+    movieId: number; 
+    movieName: string; 
+    directorName: string; 
+    movieDuration: string; 
+    movieProductionYear: string;
+    movieCategory: string; 
+    movieImageUrl: string;
+    movieRating: string;
+    movieVideoUrl: string, 
+    movieDescription: string;
 }

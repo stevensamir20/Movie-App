@@ -1,20 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { ActorsListRoutingModule } from './actors-list-routing.module';
-import { ActorsListComponent } from './actors-list.component';
 import { FormsModule } from '@angular/forms';
-import { SharedLibModule } from 'src/app/shared/libraries/shared-lib/shared-lib.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ActorsListRoutingModule } from './actors-list-routing.module';
+
+import { ActorsListComponent } from './actors-list.component';
+import { ActorFilterPipe } from 'src/app/shared/pipes/actor-filter.pipe';
 
 @NgModule({
   declarations: [
-    ActorsListComponent
+    ActorsListComponent,
+    ActorFilterPipe
   ],
   imports: [
     CommonModule,
     ActorsListRoutingModule,
     FormsModule,
-    SharedLibModule
+    FontAwesomeModule
   ]
 })
+
 export class ActorsListModule { }

@@ -1,0 +1,138 @@
+/* Search Styles */
+.form-up {
+    height: 45px;
+}
+
+.input-search {
+    width: 100%;
+    background-color: rgba(218, 218, 218, 0.313);
+    border: none;
+    outline: none;
+    color: #FFF;
+    padding: 8px 15px;
+    border-radius: 10px;
+    margin: 0 !important;
+
+    &:focus {
+        background-color: rgba(218, 218, 218, 0.313);
+        box-shadow: none;
+        color: #FFF;
+    }
+
+    &::placeholder {
+        color: white;
+    }
+}
+
+
+.search {
+    color: white;
+
+    &-icon {
+        top: 5px;
+        right: 25px;
+        font-size: 20px;
+        cursor: pointer;
+        color: darkorange;
+    }
+}
+
+@media (max-width: 991px) {
+    .filter ul {
+        display: none;
+    }
+}
+
+.name span {
+    color: darkorange;
+}
+
+/* Start Actors Movie */
+.actor-card {
+    border-radius: 25px 0;
+    background-color: white;
+    border: 2px solid darkorange;
+    transition: all .5s;
+    position: relative;
+    font-weight: bold;
+
+    & img {
+        height: 350px;
+        border-radius: 25px 0 0 0;
+    }
+}
+
+.overlay {
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 0%;
+        height: 0%;
+        background-color: #00000054;
+        border-radius: 25px 0 0 0;
+        transition: .3s;
+    }
+}
+.actor-link {
+    &:hover {
+        width: 100%;
+        height: 100%;
+
+        & .eye {
+            opacity: 1;
+        }
+    }
+    & .eye {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: darkorange;
+        font-size: 35px;
+        opacity: 0;
+        transition: all .5s;
+    }
+   
+}
+
+.actor-link:hover .overlay::before {
+    width: 100%;
+    height: 100%;
+}
+
+.actor-desc {
+    line-height: 2;
+
+    & ul {
+        margin: 0;
+    }
+}
+
+@media (max-width: 570px) {
+    .actors-up {
+        width: 85%;
+        margin: auto;
+    }
+
+    .actor-card {
+        padding: 0 !important;
+    }
+
+    .overlay {
+        margin: 0 !important;
+    }
+
+    .actor-link {
+        width: 100%;
+    }
+
+    .actor-desc {
+        text-align: center;
+        padding: 10px 0;
+    }
+}
