@@ -1,0 +1,52 @@
+.found-page {
+    height: calc(100vh - 115px) !important;
+    color: darkorange;
+    text-transform: uppercase;
+
+    & h1 {
+        font-size: 10rem;
+    }
+
+    & p {
+        &:first-of-type {
+            font-size: 5rem;
+        }
+        &:last-of-type {
+            font-size: 4rem;
+        }
+    }
+}
+
+@media (max-width: 775px) {
+    .found-page {
+        & h1  {
+            font-size: 7rem;
+        }
+
+        & p {
+            &:first-of-type {
+                font-size: 3rem;
+            }
+            &:last-of-type {
+                font-size: 2rem;
+            }
+        } 
+    }  
+}
+
+@media (max-width: 400px) {
+    .found-page {
+        & h1 {
+            font-size: 5rem;
+        }
+
+        & p {
+            &:first-of-type {
+                font-size: 2.5rem;
+            }
+            &:last-of-type {
+                font-size: 1.5rem;
+            }
+        }    
+    }
+}

@@ -28,6 +28,7 @@ export class HeaderComponent implements OnInit {
 
   logOut() {
     this.dataService.deleteToken();
+    this.dataService.deleteUserObj();
     window.location.href = window.location.href;
   }
   

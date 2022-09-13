@@ -15,7 +15,7 @@ export class MoviesService {
   constructor(private httpClient: HttpClient) { }
 
   getMovies(): Observable<MoviesPayload[]> {
-    return this.httpClient.get<MoviesPayload[]>("http://localhost:3000/movies")
+    return this.httpClient.get<MoviesPayload[]>(BaseURL + "/Movies/getmovies")
     .pipe(tap((res: MoviesPayload[]) => {
       this.moviesList.next(res)
     }));

@@ -1,4 +1,5 @@
 export interface MoviesPayload{
+    next(res: MoviesPayload[]): unknown;
     movieId: number; 
     movieName: string; 
     directorName: string; 

@@ -1,1 +1,55 @@
-<p>favorites works!</p>
+<div class="container">
+    <h2>Hello <span>{{userData.username}}</span></h2>
+    <h2>Check out your favorite movies!</h2>
+</div>
+
+<!-- Error and Loading -->
+<div *ngIf="showLoading" class="loading text-center d-flex align-items-center mt-4 mb-4">
+    <div class="container d-flex flex-column justify-content-center align-items-center">
+        <fa-icon [icon]="faSpinner" class="fa-solid fa-spinner mb-3 spinner"></fa-icon>
+        <h4>Please Wait, Loading Your Favoirtes....</h4>
+    </div>
+</div>
+
+<div *ngIf="errorMsg" class="loading text-center d-flex align-items-center mt-4 mb-4">
+    <div class="container d-flex flex-column justify-content-center align-items-center">
+        <h4>Couldn't fetch your favorites, please try again later!</h4>
+    </div>
+</div>
+
+<!-- Movies List -->
+<div class="all-movie mt-4">
+    <div class="container ps-0 pe-lg-0">
+        <div class="row">
+            <!-- Looping over the movies list -->
+            <div *ngFor="let movie of favorites" class="card-up col-lg-3 col-md-4 col-sm-6 mb-3">
+                <div class="card text-center pb-3">
+                    
+                    <a [routerLink]="['/movies', movie.movieId]" class="img-link d-block">
+                        <div class="overlay mb-3">
+                            <img [src]="movie.movieImageUrl" alt="" class="w-100">
+                            <fa-icon [icon]="faEye" class="fa-solid fa-eye eye"></fa-icon>
+                        </div>
+                    </a>
+
+                    <div class="movie-desc">
+                        <div class="rate d-flex justify-content-between align-items-center px-3 mb-3">
+                            <p class="m-0 fs-5">
+                                <fa-icon [icon]="faStar" class="fa-solid fa-star star-full"></fa-icon>
+                                {{movie.movieRating}}
+                            </p>
+                        </div>
+
+                        <h4 class="mb-3"><a  [routerLink]="['/movies', movie.movieId]">{{movie.movieName}}</a></h4>
+
+                        <p class="lead time m-0">
+                            <fa-icon [icon]="faClock" class="fa-regular fa-clock clock me-1"></fa-icon>
+                            {{movie.movieDuration}}
+                            <a class="ms-2 category">{{movie.movieCategory}}</a>
+                        </p>                                
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

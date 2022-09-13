@@ -16,33 +16,31 @@ export class SignUpComponent implements OnInit {
   showError: string | undefined;
 
   constructor(private fb: FormBuilder, private dataService: LoginService, private router: Router) {
-      this.registerForm = this.fb.group({
-        name: ['', Validators.compose([Validators.required, Validators.pattern("^(?=.{4,25}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$")])],
-        email: ['', Validators.compose([Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")])],
-        password: ['', Validators.compose([Validators.required, Validators.minLength(8)])],
-        confirmPassword: ['', [Validators.required]], 
-      }, {
-        validators: this.passMatch('password', 'confirmPassword')
-      });
+    this.registerForm = this.fb.group({
+      name: ['', Validators.compose([Validators.required, Validators.pattern("^(?=.{4,25}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$")])],
+      email: ['', Validators.compose([Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")])],
+      password: ['', Validators.compose([Validators.required, Validators.minLength(8)])],
+      confirmPassword: ['', [Validators.required]], 
+    }, { validators: this.passMatch('password', 'confirmPassword')}
+    );
   }
 
   ngOnInit() {}
 
   postData(regForm: any){
-      this.showLoading = true;
-      this.dataService.userRegister(regForm.value.name, regForm.value.email, regForm.value.password)
-      .pipe(first())
-      .subscribe(
-          (data) => { 
-            this.router.navigate(['login']); 
-            this.showLoading = false;
-          },
-          (error) => { 
-            this.showError = error;
-            this.showLoading = false; 
-          }
-      );
-
+    this.showLoading = true;
+    this.dataService.userRegister(regForm.value.name, regForm.value.email, regForm.value.password)
+    .pipe(first())
+    .subscribe(
+      (data) => { 
+        this.router.navigate(['login']); 
+        this.showLoading = false;
+      },
+      (error) => { 
+        this.showError = error;
+        this.showLoading = false; 
+      }
+    );
   }
 
   get name() { return this.registerForm.get('name'); }

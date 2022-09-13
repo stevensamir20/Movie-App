@@ -15,7 +15,7 @@ export class ActorsService {
   constructor(private httpClient: HttpClient) { }
 
   getActors(): Observable<ActorsPayload[]> {
-    return this.httpClient.get<ActorsPayload[]>("http://localhost:3000/actors")
+    return this.httpClient.get<ActorsPayload[]>(BaseURL + "/Actors/getactors")
     .pipe(tap((res: ActorsPayload[]) => {
       this.actorsList.next(res)
     }));

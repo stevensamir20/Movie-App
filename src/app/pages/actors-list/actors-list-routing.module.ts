@@ -8,4 +8,5 @@ const routes: Routes = [{ path: '', component: ActorsListComponent }];
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
+
 export class ActorsListRoutingModule { }
