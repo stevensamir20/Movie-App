@@ -1,6 +1,13 @@
-<div class="container mt-4">
-    <h2>Hello <span>{{userData.username}}</span></h2>
-    <h2>Check out your favorite movies!</h2>
+<!-- Search Start -->
+<div class="search mt-4">
+    <div class="container p-lg-0">
+        <div class="row">
+            <div class="name col-lg-5 ">
+                <h2>Hello <span>{{userData.username}}</span></h2>
+                <h2>Check out your favorites!</h2>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- Error and Loading -->
@@ -38,9 +45,12 @@
                                 <fa-icon [icon]="faStar" class="fa-solid fa-star star-full"></fa-icon>
                                 {{movie.movieRating}}
                             </p>
+                            <p>
+                                <button (click)="deleteMovie(movie.movieId)">Delete</button>
+                            </p>
                         </div>
 
-                        <h4 class="mb-3"><a  [routerLink]="['/movies', movie.movieId]">{{movie.movieName}}</a></h4>
+                        <h4 class="mb-3"><a [routerLink]="['/movies', movie.movieId]">{{movie.movieName}}</a></h4>
 
                         <p class="lead time m-0">
                             <fa-icon [icon]="faClock" class="fa-regular fa-clock clock me-1"></fa-icon>

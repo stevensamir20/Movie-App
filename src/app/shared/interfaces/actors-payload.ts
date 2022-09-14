@@ -1,7 +1,10 @@
+import { MoviesPayload } from "./movies-payload";
+
 export interface ActorsPayload{
     actorId: number;
     actorName: string;
-    actorAge: number;
-    actorImgUrl: string;
-    actorMovies: number;
+    age: string;
+    height: string;
+    actorImageUrl: string;
+    actorMovies: MoviesPayload[];
 }

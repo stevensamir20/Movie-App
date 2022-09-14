@@ -1,3 +1,69 @@
-<p>single-actor page works! with id of : {{actor.id}}</p>
+<!-- Error and Loading -->
+<div *ngIf="showLoading" class="loading text-center d-flex align-items-center mt-4 mb-4">
+    <div class="container d-flex flex-column justify-content-center align-items-center">
+        <fa-icon [icon]="faSpinner" class="fa-solid fa-spinner mb-3 spinner"></fa-icon>
+        <h4>Please Wait, Loading....</h4>
+    </div>
+</div>
 
-<div><a [routerLink]="['../../movies', actor.id]">navigate to movie of id 3</a></div>
+<div *ngIf="errorMsg" class="loading text-center d-flex align-items-center mt-4 mb-4">
+    <div class="container d-flex flex-column justify-content-center align-items-center">
+        <h4>Couldn't fetch actors data, please try again later!</h4>
+    </div>
+</div>
+
+<div *ngIf="!showLoading" class="movie-actor">
+    <div class="container p-0">
+        <div class="d-flex up-container">
+            <div class="booster w-25">
+                <div class="actors-up mt-4">
+                    <div  class="actor-card text-center">
+                        <div class="actor-link">
+                            <img [src]="actor?.actorImageUrl" alt="" class="w-100">
+                        </div>
+
+                        <div class="actor-desc pt-3">
+                            <ul class="list-unstyled">
+                                <li>{{actor?.actorName}}</li>
+                                <li>Age : {{actor?.age}}</li>
+                                <li>Height : {{actor?.height}}</li>
+                            </ul>                              
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="all-movie w-75">
+                <div class="row">
+                    <div *ngFor="let movie of actor?.actorMovies" class="card-up col-lg-4 col-md-6 mb-3">
+                        <div class="card text-center pb-3">
+                            <a [routerLink]="['../../movies', movie.movieId]" class="img-link d-block">
+                                <div class="overlay mb-3">
+                                    <img [src]="movie.movieImageUrl" alt="" class="w-100">
+                                    <fa-icon [icon]="faEye" class="fa-solid fa-eye eye"></fa-icon>
+                                </div>
+                            </a>
+
+                            <div class="movie-desc">
+                                <div class="rate d-flex justify-content-between align-items-center px-3 pb-3">
+                                    <p class="m-0 fs-5">
+                                        <fa-icon [icon]="faStar" class="fa-solid fa-star star-full"></fa-icon>
+                                        {{movie.movieRating}}
+                                    </p>
+                                </div>
+    
+                                <h4 class="mb-3"><a [routerLink]="['../../movies', movie.movieId]">{{movie.movieName}}</a></h4>
+
+                                <p class="lead time m-0">
+                                    <fa-icon [icon]="faClock" class="fa-regular fa-clock clock me-1"></fa-icon> 
+                                    {{movie.movieDuration}}
+                                    <a class="ms-2 category">{{movie.movieCategory}}</a>
+                                </p>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

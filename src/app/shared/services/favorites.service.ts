@@ -8,14 +8,18 @@ import { BaseURL } from './baseUrl';
 
 export class FavoritesService {
 
-  constructor( private httpClient : HttpClient ) { }
-
-  public setFavorite(userId: number, movieId: number) {
-    return this.httpClient.post<any>(BaseURL + "/Users/favorites", { userId, movieId });
+  constructor( private httpClient : HttpClient ) {}
+  
+  public addToFavorite(userId: number, movieId: number) {
+    return this.httpClient.post<any>(BaseURL + `/Users/addtofavourites/${userId}/${movieId}`, null);
+  }
+    
+  public getFavorites(userId: number) {
+    return this.httpClient.get<any>(BaseURL + `/Users/getfavourites/${userId}`);
   }
 
-  getFavorites() {
-    return this.httpClient.get<any>(BaseURL + "/Users/favorites");
+  public deleteFromFavorites(userId: number, movieId: number){
+    return this.httpClient.delete<any>(BaseURL + `/Users/removefavourite/${userId}/${movieId}`);
   }
-
+  
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FavoritesService } from 'src/app/shared/services/favorites.service';
 import { LoginService } from 'src/app/shared/services/login.service';
 
 @Component({
@@ -8,9 +9,9 @@ import { LoginService } from 'src/app/shared/services/login.service';
 
 export class HeaderComponent implements OnInit {
 
-  loggedIn:boolean;
+  loggedIn: boolean;
 
-  constructor(private dataService: LoginService) {
+  constructor(private dataService: LoginService, private favoritesService: FavoritesService) {
     dataService.getLoggedInState.subscribe(state => this.changeLoggedState(state));
     if(this.dataService.isLoggedIn()){
       this.loggedIn=true
@@ -29,6 +30,7 @@ export class HeaderComponent implements OnInit {
   logOut() {
     this.dataService.deleteToken();
     this.dataService.deleteUserObj();
+    // this.favoritesService.deleteFavorites();
     window.location.href = window.location.href;
   }
   

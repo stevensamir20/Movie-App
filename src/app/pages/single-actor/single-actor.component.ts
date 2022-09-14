@@ -1,7 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { of, Subscription, switchMap } from 'rxjs';
+import { ActorsPayload } from 'src/app/shared/interfaces/actors-payload';
 import { ActorsService } from 'src/app/shared/services/actors.service';
+import { faEye, faSpinner, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faClock } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-single-actor',
@@ -11,17 +14,17 @@ import { ActorsService } from 'src/app/shared/services/actors.service';
 
 export class SingleActorComponent implements OnInit, OnDestroy {
 
-  actor: any;
+  actor?: ActorsPayload;
   sub?: Subscription;
   router: any;
-  showLoading: boolean = false;
+  showLoading?: boolean = false;
   errorMsg?: string;
 
   constructor( private actorsService: ActorsService, private route: ActivatedRoute ) {}
 
   ngOnInit(): void {
+    this.showLoading = true;
     this.sub = this.route.paramMap.subscribe( (params) => {
-      this.showLoading = true;
       let id = params.get("id");
 
       if (id) {
@@ -30,10 +33,8 @@ export class SingleActorComponent implements OnInit, OnDestroy {
         .pipe( 
           switchMap( (item) => {
             if (item.length) { 
-              this.showLoading = false;
               return of(item) 
             }
-            this.showLoading = false;
             return this.actorsService.getActors()
           })
         ) 
@@ -45,7 +46,8 @@ export class SingleActorComponent implements OnInit, OnDestroy {
             })
           },
           (error) => {
-            
+            this.showLoading = false;
+            this.errorMsg = error;
           },
         )
       }
@@ -55,4 +57,9 @@ export class SingleActorComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.sub?.unsubscribe();
   }
+
+  faStar = faStar;
+  faEye = faEye;
+  faClock = faClock;
+  faSpinner = faSpinner;
 }

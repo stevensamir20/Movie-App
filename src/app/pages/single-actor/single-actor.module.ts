@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { SingleActorRoutingModule } from './single-actor-routing.module';
 import { SingleActorComponent } from './single-actor.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { SingleActorComponent } from './single-actor.component';
   ],
   imports: [
     CommonModule,
-    SingleActorRoutingModule
+    SingleActorRoutingModule,
+    FontAwesomeModule
   ]
 })
 export class SingleActorModule { }

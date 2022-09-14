@@ -21,7 +21,6 @@ export class ActorsListComponent implements OnInit {
   errorMsg?: string;
   userData: UserPayload;
  
-
   constructor(private actorsService: ActorsService, private loginService: LoginService) {
     this.userData = this.loginService.getUserObj();
   }
