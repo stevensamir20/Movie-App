@@ -1,3 +1,4 @@
+@import "../../styles/base/variables.scss";
 /* Search Styles */
 .form-up {
     height: 45px;
@@ -12,6 +13,7 @@
     padding: 8px 15px;
     border-radius: 10px;
     margin: 0 !important;
+    border: 2px double $white-color;
 
     &:focus {
         background-color: rgba(218, 218, 218, 0.313);
@@ -24,6 +26,14 @@
     }
 }
 
+.input-search::placeholder {
+    color:  $white-color;
+    transition: .3s;
+}
+
+.input-search:focus::placeholder {
+    opacity: 0;
+}
 
 .search {
     color: white;
@@ -33,7 +43,7 @@
         right: 25px;
         font-size: 20px;
         cursor: pointer;
-        color: darkorange;
+        color: $light-red-color;
     }
 }
 
@@ -44,14 +54,14 @@
 }
 
 .name span {
-    color: darkorange;
+    color: $light-red-color;
 }
 
 /* Start Actors Movie */
 .actor-card {
     border-radius: 25px 0;
     background-color: white;
-    border: 2px solid darkorange;
+    border: 2px solid $light-red-color;
     transition: all .5s;
     position: relative;
     font-weight: bold;
@@ -92,7 +102,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        color: darkorange;
+        color: $light-red-color;
         font-size: 35px;
         opacity: 0;
         transition: all .5s;

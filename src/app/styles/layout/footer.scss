@@ -3,11 +3,11 @@ app-footer {
 }
 
 .footer {
-    color: white;
-    background-color: black;
+    color: $white-color;
+    background-color: $darker-color;
     padding: 12px;
     & span {
-        color: darkorange;
+        color: $light-red-color;
     }
 }
 

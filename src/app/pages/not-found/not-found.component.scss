@@ -1,6 +1,7 @@
+@import "../../styles/base/variables.scss";
 .found-page {
     height: calc(100vh - 115px) !important;
-    color: darkorange;
+    color: $light-red-color;
     text-transform: uppercase;
 
     & h1 {

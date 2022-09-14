@@ -1,4 +1,4 @@
-<div class="header-details container d-flex justify-content-between pt-4">
+<div *ngIf="!showLoading" class="header-details container d-flex justify-content-between pt-4">
     <div class="movie-name">
         <h2>{{movie?.movieName}}</h2>
         <p class="fs-5">{{movie?.movieProductionYear}} - <span>{{movie?.movieDuration}}</span></p>
@@ -20,9 +20,9 @@
     </div>
 </div>
 
-<div class="movie-body container mt-2 d-flex w-100">
+<div *ngIf="!showLoading" class="movie-body container mt-2 d-flex w-100">
     <div class="movie-cover w-25">
-        <img [src]="movie?.movieImageUrl" alt="img" class="img-fluid">
+        <img [src]="movie?.movieImageUrl" alt="img" class="img-fluid w-100 h-100">
     </div>
 
     <div class="movie-video w-75">
@@ -30,7 +30,21 @@
     </div>
 </div>
 
-<div class="category-up container link-details d-flex justify-content-between mt-4 mb-3 align-items-center">
+<!-- Error, loading -->
+<div *ngIf="showLoading" class="loading text-center d-flex align-items-center mt-4 mb-4">
+    <div class="container d-flex flex-column justify-content-center align-items-center">
+        <fa-icon [icon]="faSpinner" class="fa-solid fa-spinner mb-3 spinner"></fa-icon>
+        <h4>Please Wait, Loading....</h4>
+    </div>
+</div>
+
+<div *ngIf="errorMsg" class="loading text-center d-flex align-items-center mt-4 mb-4">
+    <div class="container d-flex flex-column justify-content-center align-items-center">
+        <h4>Couldn't fetch this movie's data, please try again later!</h4>
+    </div>
+</div>
+
+<div *ngIf="!showLoading" class="category-up container link-details d-flex justify-content-between mt-4 mb-3 align-items-center">
     <p class="director m-0">Director - <a class="ms-2">{{movie?.directorName}}</a></p>
 
     <div class="category">
@@ -38,7 +52,7 @@
     </div>
 </div>
 
-<div class="desc d-flex justify-content-between container">
+<div *ngIf="!showLoading" class="desc d-flex justify-content-between container">
     <p class="w-50 lead">
         {{movie?.movieDescription}}
     </p>

@@ -4,7 +4,7 @@ import { of, Subscription, switchMap } from 'rxjs';
 import { MoviesService } from 'src/app/shared/services/movies.service';
 
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
-import { faStar , faHeart as faHeartSolid } from '@fortawesome/free-solid-svg-icons';
+import { faStar , faHeart as faHeartSolid, faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-single-movie',
@@ -16,12 +16,16 @@ export class SingleMovieComponent implements OnInit, OnDestroy {
 
   movie: any;
   sub?: Subscription;
+  showLoading: boolean = false;
+  errorMsg?: string;
+  faSpinner = faSpinner;
 
   constructor( private service: MoviesService, private route: ActivatedRoute ) {}
 
   ngOnInit(): void {
+    this.showLoading = true;
     this.sub = this.route.paramMap.subscribe( (params) => {
-
+      
       let id = params.get("id");
 
       if (id) {
@@ -29,15 +33,24 @@ export class SingleMovieComponent implements OnInit, OnDestroy {
         this.service.getMovie()
         .pipe( 
           switchMap( (item) => {
-            if (item.length) { return of(item) }
+            if (item.length) { 
+              return of(item) 
+            }
             return this.service.getMovies()
           })
         ) 
-        .subscribe( (res) => {
-          this.movie = res.find( (obj) => {
-            return obj.movieId  === movId
-          })
-        })
+        .subscribe( 
+          (res) => {
+            this.movie = res.find( (obj) => {
+              this.showLoading = false;
+              return obj.movieId  === movId
+            })
+          },
+          (error) => {
+            this.showLoading = false;
+            this.errorMsg = error 
+          }
+        )
       }
     })
   }
@@ -46,8 +59,8 @@ export class SingleMovieComponent implements OnInit, OnDestroy {
     this.sub?.unsubscribe();
   }
 
-   // Fontawesome variables
-   faStar = faStar;
-   faHeart = faHeart;
-   faHeartSolid = faHeartSolid;
+  // Fontawesome variables
+  faStar = faStar;
+  faHeart = faHeart;
+  faHeartSolid = faHeartSolid;
 }

@@ -16,7 +16,7 @@ app-sign-up, app-login {
     background-size:cover;
 }
 body {
-  background-color: #282828;
+  background-color: $dark-color;
 }
 a {
     text-decoration: none !important;
@@ -34,7 +34,7 @@ hr {
 // Loading spinner
 .loading {
     min-height: calc(100vh - 658px);
-    color: darkorange;
+    color: $light-red-color;
 }
 
 @media (max-width: 991px) {

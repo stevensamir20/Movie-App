@@ -14,12 +14,14 @@ export class SingleActorComponent implements OnInit, OnDestroy {
   actor: any;
   sub?: Subscription;
   router: any;
+  showLoading: boolean = false;
+  errorMsg?: string;
 
   constructor( private actorsService: ActorsService, private route: ActivatedRoute ) {}
 
   ngOnInit(): void {
     this.sub = this.route.paramMap.subscribe( (params) => {
-
+      this.showLoading = true;
       let id = params.get("id");
 
       if (id) {
@@ -27,15 +29,25 @@ export class SingleActorComponent implements OnInit, OnDestroy {
         this.actorsService.getActor()
         .pipe( 
           switchMap( (item) => {
-            if (item.length) { return of(item) }
+            if (item.length) { 
+              this.showLoading = false;
+              return of(item) 
+            }
+            this.showLoading = false;
             return this.actorsService.getActors()
           })
         ) 
-        .subscribe( (res) => {
-          this.actor = res.find( (obj) => {
-            return obj.actorId  === actId
-          })
-        })
+        .subscribe( 
+          (res) => {
+            this.actor = res.find( (obj) => {
+              this.showLoading = false;
+              return obj.actorId  === actId
+            })
+          },
+          (error) => {
+            
+          },
+        )
       }
     })
   }
