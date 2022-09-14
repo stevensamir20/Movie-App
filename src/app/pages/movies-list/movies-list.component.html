@@ -35,7 +35,7 @@
             </div>
 
             <div class="carousel-inner">
-                <div  *ngFor="let poster of movies; let i = index;">
+                <div  *ngFor="let poster of movies | ratingFilter; let i = index; ">
                     <div class="carousel-item"  [ngClass]="{'active': i === 0}">
                     <a [routerLink]="['/movies', poster.movieId]">
                         <img [src]="poster.movieImageUrl" class="d-block w-100" alt="img">

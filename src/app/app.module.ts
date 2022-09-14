@@ -13,6 +13,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { LoginComponent } from './pages/login/login.component';
 
 import { MovieFilterPipe } from './shared/pipes/movie-filter.pipe';
+import { RatingFilterPipe } from './shared/pipes/rating-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MovieFilterPipe } from './shared/pipes/movie-filter.pipe';
     FooterComponent,
     NotFoundComponent,
     LoginComponent,
-    MovieFilterPipe
+    MovieFilterPipe,
+    RatingFilterPipe
   ],
   imports: [
     BrowserModule,
