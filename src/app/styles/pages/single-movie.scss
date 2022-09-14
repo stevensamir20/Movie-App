@@ -5,11 +5,11 @@
 
     & .reviews .star {
         color: $light-red-color;
-        font-size: 18px;
+        font-size: 25px;
     }
 
     & .reviews span {
-        font-size: 18px;
+        font-size: 25px;
     }
 
     & .reviews a {
@@ -119,4 +119,42 @@
     & a {
         color: $light-red-color;
     }
+}
+
+// alert fav message
+.alert {
+    width: 300px;
+    position: absolute;
+    z-index: 999;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20px;
+    background-color: darkred;
+    color: #FFF;
+    border: none;
+    margin: 0;
+    border: 2px solid #FFF;
+    border-radius: 15px;
+}
+
+.btn-close {
+    color: #fff;
+    background: none;
+    padding: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%);
+    right: 10px !important;
+    opacity: 1;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: -5.5px;
+}
+
+.btn-close:hover {
+    color: #FFF;
+    opacity: 1;
+}
+.heart {
+    font-size: 30px!important;
+    cursor: pointer;
 }
