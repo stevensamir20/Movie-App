@@ -15,7 +15,7 @@ import { MoviesPayload } from 'src/app/shared/interfaces/movies-payload';
 export class FavoritesComponent implements OnInit, OnDestroy {
 
   showLoading: boolean = false;
-  favorites?: MoviesPayload[];
+  favorites: MoviesPayload[] = [];
   sub?: Subscription;
   errorMsg?: string;
   userData: any;
@@ -41,16 +41,15 @@ export class FavoritesComponent implements OnInit, OnDestroy {
   }
 
   deleteMovie(movieId: number){
-    console.log(this.favorites);
-    
     this.favMsg = "Deleting from favorites.."
+    
     this.favoriteService.deleteFromFavorites(this.userData.id, movieId).subscribe(
       (res) => {
-        console.log(this.favorites);
-        let movieDeleted = this.favorites?.findIndex(object => { return object.movieId === movieId; });
-        if (movieDeleted){  this.favorites?.splice(movieDeleted, 1); }
+        let movieDeleted: number = this.favorites?.findIndex(object => { return object.movieId === movieId; });
+        if (movieDeleted != -1){  
+          this.favorites?.splice(movieDeleted, 1); 
+        }
         this.favMsg = "Deleted from favorites!"
-        console.log(this.favorites);
       },
       (error) => {
         this.favMsg = "Couldn't delete from favorites, try again later!"

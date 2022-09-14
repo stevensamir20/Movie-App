@@ -37,7 +37,7 @@ export class SignUpComponent implements OnInit {
         this.showLoading = false;
       },
       (error) => { 
-        this.showError = error;
+        this.showError = error.error;
         this.showLoading = false; 
       }
     );

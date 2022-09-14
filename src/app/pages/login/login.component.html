@@ -18,8 +18,8 @@
             <span *ngIf="!showLoading">Login</span>
         </button>
         <div style="margin-top: 15px;"><span>Don't have an account? <a routerLink="sign-up" class="signup">Sign up now!</a></span></div>
-        <div *ngIf="showError" class="alert alert-danger" role="alert" style="margin-top: 15px; margin-bottom: -20px;">
-            Error: {{showError}}
+        <div *ngIf="showError" class="alert alert-danger" role="alert" style="margin-bottom: 30px;">
+            {{showError}}
         </div>
     </form>
     </div>
