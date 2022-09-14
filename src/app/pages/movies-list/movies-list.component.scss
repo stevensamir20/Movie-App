@@ -236,3 +236,14 @@
         }
     }
 }
+
+.removeFav {
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    color: $light-red-color;
+
+    &:hover {
+        color: $darker-color;
+    }
+}

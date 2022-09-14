@@ -1,3 +1,9 @@
+<!-- Added to favorites message -->
+<div *ngIf="favMsg" class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>{{favMsg}}</strong>
+    <fa-icon [icon]="faClose" class="fa-solid fa-x btn-close" data-bs-dismiss="alert" aria-label="Close"></fa-icon>
+</div>
+
 <!-- Search Start -->
 <div class="search mt-4">
     <div class="container p-lg-0">
@@ -45,9 +51,7 @@
                                 <fa-icon [icon]="faStar" class="fa-solid fa-star star-full"></fa-icon>
                                 {{movie.movieRating}}
                             </p>
-                            <p>
-                                <button (click)="deleteMovie(movie.movieId)">Delete</button>
-                            </p>
+                            <span class="removeFav" (click)="deleteMovie(movie.movieId)">X</span>
                         </div>
 
                         <h4 class="mb-3"><a [routerLink]="['/movies', movie.movieId]">{{movie.movieName}}</a></h4>

@@ -20,7 +20,9 @@
         <div class="favorite text-center">
             <p class="mb-1 fs-5">Favorite</p>
             <a (click)="addToFav(movie!.movieId)">
-                <fa-icon *ngIf="showFavLoading" [icon]="faSpinner"class="fa-solid fa-spinner spinner"></fa-icon>
+                <div *ngIf="showFavLoading" class="spinner-border text-danger favSpinner" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
                 <fa-icon *ngIf="!showFavLoading" [icon]="faHeart" class="fa-regular fa-heart fs-4 heart"></fa-icon>
             </a>
         </div>
@@ -40,7 +42,7 @@
 <!-- Error, loading -->
 <div *ngIf="showLoading" class="loading text-center d-flex align-items-center mt-4 mb-4">
     <div class="container d-flex flex-column justify-content-center align-items-center">
-        <fa-icon [icon]="faSpinner" class="favoriteSpinner"></fa-icon>
+        <fa-icon [icon]="faSpinner" class="fa-solid fa-spinner mb-3 spinner"></fa-icon>
         <h4>Please Wait, Loading....</h4>
     </div>
 </div>

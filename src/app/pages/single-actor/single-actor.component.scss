@@ -7,11 +7,13 @@
 }
 .actor-card {
     border-radius: 25px 0;
-    background-color: $white-color;
-    border: 2px solid $light-red-color;
+    background-color: #C8C6C6;
+    border: 2px solid $darker-color;
     transition: all .5s;
     position: relative;
     font-weight: bold;
+    font-size: 20px;
+    color: $secondary-color;
 
     & img {
         height: 260px;
@@ -42,8 +44,8 @@
 }
 .card {
     border-radius: 25px 0;
-    background-color: $white-color;
-    border: 2px solid $light-red-color;
+    background-color: #C8C6C6;
+    border: 2px solid $darker-color;
     transition: all .5s;
     position: relative;
 
@@ -74,7 +76,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
         color: $light-red-color;
-        font-size: 45px;
+        font-size: 30px;
         opacity: 0;
         transition: all .5s;
     } 

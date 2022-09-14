@@ -60,11 +60,13 @@
 /* Start Actors Movie */
 .actor-card {
     border-radius: 25px 0;
-    background-color: white;
-    border: 2px solid $light-red-color;
+    background-color: #C8C6C6;
+    border: 2px solid $darker-color;
     transition: all .5s;
     position: relative;
     font-weight: bold;
+    color: $secondary-color;
+    font-size: 20px;
 
     & img {
         height: 350px;
