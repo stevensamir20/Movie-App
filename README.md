@@ -1,7 +1,7 @@
 # MovieAppProject
 This project was graduation project of Banque Misr summer internship program for Frontend web developers
 
-Styling components and layouts was made by Beshoy Hamam(https://github.com/Besho98) using bootstrap and media queries.
+Styling components and layouts was made by Beshoy Hamam (https://github.com/Besho98)  using bootstrap and media queries.
 
 All of the other functionalities such as Services, Guards, Routing, API Calls was made by the owner of this repo.
 
