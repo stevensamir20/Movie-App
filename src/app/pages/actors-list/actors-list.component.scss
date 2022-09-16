@@ -1,78 +1,6 @@
 @import "../../styles/base/variables.scss";
-/* Search Styles */
-.form-up {
-    height: 45px;
-}
-
-.input-search {
-    width: 100%;
-    background-color: rgba(218, 218, 218, 0.313);
-    border: none;
-    outline: none;
-    color: #FFF;
-    padding: 8px 15px;
-    border-radius: 10px;
-    margin: 0 !important;
-    border: 2px double $white-color;
-
-    &:focus {
-        background-color: rgba(218, 218, 218, 0.313);
-        box-shadow: none;
-        color: #FFF;
-    }
-
-    &::placeholder {
-        color: white;
-    }
-}
-
-.input-search::placeholder {
-    color:  $white-color;
-    transition: .3s;
-}
-
-.input-search:focus::placeholder {
-    opacity: 0;
-}
-
-.search {
-    color: white;
-
-    &-icon {
-        top: 5px;
-        right: 25px;
-        font-size: 20px;
-        cursor: pointer;
-        color: $light-red-color;
-    }
-}
-
-@media (max-width: 991px) {
-    .filter ul {
-        display: none;
-    }
-}
-
-.name span {
-    color: $light-red-color;
-}
-
-/* Start Actors Movie */
-.actor-card {
-    border-radius: 25px 0;
-    background-color: #C8C6C6;
-    border: 2px solid $darker-color;
-    transition: all .5s;
-    position: relative;
-    font-weight: bold;
-    color: $secondary-color;
-    font-size: 20px;
-
-    & img {
-        height: 350px;
-        border-radius: 25px 0 0 0;
-    }
-}
+@import "../../styles/components/search.scss";
+@import "../../styles/components/actor-card.scss";
 
 .overlay {
     position: relative;
@@ -111,40 +39,7 @@
     }
    
 }
-
 .actor-link:hover .overlay::before {
     width: 100%;
     height: 100%;
-}
-
-.actor-desc {
-    line-height: 2;
-
-    & ul {
-        margin: 0;
-    }
-}
-
-@media (max-width: 570px) {
-    .actors-up {
-        width: 85%;
-        margin: auto;
-    }
-
-    .actor-card {
-        padding: 0 !important;
-    }
-
-    .overlay {
-        margin: 0 !important;
-    }
-
-    .actor-link {
-        width: 100%;
-    }
-
-    .actor-desc {
-        text-align: center;
-        padding: 10px 0;
-    }
 }

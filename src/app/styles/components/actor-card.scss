@@ -1,0 +1,40 @@
+.movie-actor {
+    min-height: calc(100vh - 115px);
+}
+.actor-card {
+    border-radius: 25px 0;
+    background-color: #C8C6C6;
+    border: 2px solid $darker-color;
+    transition: all .5s;
+    position: relative;
+    font-weight: bold;
+    font-size: 20px;
+    color: $secondary-color;
+
+    & img {
+        height: 260px;
+        border-radius: 25px 0 0 0;
+    }
+}
+.actor-desc ul {
+    line-height: 2;
+}
+@media (max-width: 570px) {
+    .actors-up {
+        width: 85%;
+        margin: auto;
+    }
+
+    .actor-card {
+        padding: 0 !important;
+    }
+
+    .actor-link {
+        width: 100%;
+    }
+
+    .actor-desc {
+        text-align: center;
+        padding: 10px 0;
+    }
+}

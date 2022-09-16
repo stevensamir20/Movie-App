@@ -1,0 +1,42 @@
+.form-up {
+    height: 45px;
+}
+.name span {
+    color: $light-red-color;
+}
+.input-search {
+    width: 100%;
+    background-color: rgba(218, 218, 218, 0.313);
+    border: none;
+    outline: none;
+    color: $white-color;
+    padding: 8px 15px;
+    border-radius: 10px;
+    margin: 0 !important;
+    border: 2px double $white-color;
+
+    &::placeholder {
+        color:  $white-color;
+        transition: .3s;
+    }
+
+    &:focus {
+        background-color: rgba(218, 218, 218, 0.313);
+        box-shadow: none;
+        color: $white-color;
+    }
+}
+.input-search:focus::placeholder {
+    opacity: 0;
+}
+.search {
+    color: $white-color;
+
+    &-icon {
+        top: 5px;
+        right: 25px;
+        font-size: 20px;
+        cursor: pointer;
+        color:  $light-red-color;
+    }
+}

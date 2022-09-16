@@ -30,24 +30,19 @@ ul {
 hr {
     margin: 0 !important;
 }
-
-// Loading spinner
 .loading {
     min-height: calc(100vh - 658px);
     color: $light-red-color;
 }
-
 @media (max-width: 991px) {
     .loading {
         min-height: calc(100vh - 260px);
     }
 }
-
 .spinner {
     font-size: 40px;
     animation: spinner 2s infinite linear;
 }
-
 @keyframes spinner {
     from {
         transform: rotate(0);
@@ -57,8 +52,6 @@ hr {
         transform: rotate(360deg);
     }
 }
-
-// alert fav message
 .alert {
     width: 300px;
     position: absolute;
@@ -73,7 +66,6 @@ hr {
     border: 2px solid #FFF;
     border-radius: 15px;
 }
-
 .btn-close {
     color: #fff;
     background: none;
@@ -86,7 +78,6 @@ hr {
     cursor: pointer;
     margin-top: -5.5px;
 }
-
 .btn-close:hover {
     color: #FFF;
     opacity: 1;
